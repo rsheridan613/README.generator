@@ -1,63 +1,59 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
-  "What is the title of the project?",
-  "Type a short description for your project.",
-  "What are the installation instructions?",
-  "How do you use this app?",
-  "Who are the contributors?",
-  "test thing",
-  "Which liscense would you like?",
-  "What is your GitHub username?",
-  "What is your email?",
+  {
+    name: "title",
+    type: "input",
+    message: "What is the title of the project?",
+  },
+  {
+    name: "description",
+    type: "input",
+    message: "Type a short description for your project.",
+  },
+  {
+    name: "install",
+    type: "input",
+    message: "What are the installation instructions?",
+  },
+  { name: "usage", type: "input", message: "How do you use this app?" },
+  { name: "contribution", type: "input", message: "Who are the contributors?" },
+  {
+    name: "test",
+    type: "input",
+    message: "Inculde instructions on how to run tests.",
+  },
+  {
+    name: "liscense",
+    type: "list",
+    message: "Which liscense would you like?",
+    choices: ["one", "two", "None"],
+  },
+  {
+    name: "gitUsername",
+    type: "input",
+    message: "What is your GitHub username?",
+  },
+  { name: "email", type: "input", message: "What is your email?" },
 ];
-inquirer
-  .prompt([
-    {
-      name: "title",
-      type: "input",
-      message: questions[0],
-    },
-    {
-      name: "description",
-      type: "input",
-      message: questions[1],
-    },
-    {
-      name: "install",
-      type: "input",
-      message: questions[2],
-    },
-    { name: "usage", type: "input", message: questions[3] },
-    { name: "contribution", type: "input", message: questions[4] },
-    {
-      name: "test",
-      type: "input",
-      message: questions[5],
-    },
-    {
-      name: "liscense",
-      type: "list",
-      message: questions[6],
-      choices: ["one", "two", "three"],
-    },
-    {
-      name: "gitUsername",
-      type: "input",
-      message: questions[7],
-    },
-    { name: "email", type: "input", message: questions[8] },
-  ])
-  .then((response) => console.log(response));
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  return fs.writeFile(fileName, data, function () {
+    console.log("File Created");
+  });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((response) => writeToFile("README.md", generateMarkdown(response)));
+}
 
 // Function call to initialize app
 init();
