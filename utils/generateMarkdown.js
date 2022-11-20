@@ -14,7 +14,7 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   if (license !== "None") {
-    return `1. [License](#license)`;
+    return `- [License](#license)`;
   } else return ``;
 }
 
@@ -37,39 +37,38 @@ function generateMarkdown(data) {
   return `${renderLicenseBadge(data.license)} 
   # ${data.title}
 
-  
-  ### Table of contents:
-  1. [Description](#description)
-  1. [Installation](#installation)
-  1. [Usage](#usage)
-  1. [Contributions](#contributions)
-  1. [Tests](#tests)
+   ## Table of contents:
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributions](#contributions)
+  - [Tests](#tests)
   ${renderLicenseLink(data.license)}
-  1. [Questions](#questions)
+  - [Questions](#questions)
   
   ## Description
   ${data.description}
 
-## Intallation
-${data.install}
+  ## Intallation
+  ${data.install}
 
-## Usage
-${data.usage}
+  ## Usage
+  ${data.usage}
 
-## Contributions
-${data.contribution}
+  ## Contributions
+  ${data.contribution}
 
-## Tests
-${data.test} 
+  ## Tests
+  ${data.test} 
 
-${renderLicenseSection(data.license)}
+  ${renderLicenseSection(data.license)}
  
-## Questions
-Any questions can be directed to my [GitHub](https://github.com/${
+  ## Questions
+  Any questions can be directed to my [GitHub](https://github.com/${
     data.gitUsername
   }) or 
-[Email](${data.email})
-`;
+  [Email](${data.email})
+  `;
 }
 
 module.exports = generateMarkdown;
