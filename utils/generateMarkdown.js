@@ -44,7 +44,7 @@ function generateMarkdown(data) {
 1. [Contributing](#contributing)
 1. [Tests](#tests)
 ${renderLicenseLink(data.license)}
-1. [Contact Me](#contact-me)
+1. [Questions](#questions)
 
 ## Intallation
 ${data.install}
@@ -60,8 +60,10 @@ ${data.test}
 
 ${renderLicenseSection(data.license)}
  
-## Contact Me
-[GitHub](https://github.com/${data.gitUsername})  
+## Questions
+Any questions can be directed to my [GitHub](https://github.com/${
+    data.gitUsername
+  }) or 
 [Email](${data.email})
 `;
 }
