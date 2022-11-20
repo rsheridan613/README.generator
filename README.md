@@ -12,5 +12,5 @@ Run ```node index.js``` in your terminal. Answer a few questions and get your fi
 
 ## Demonstration
 
-[Google Drive](https://drive.google.com/file/d/1O3AFMg7TwXwYTxrvrRvw2a-tAGaytjcS/view)
-[YouTube](
+[Google Drive](https://drive.google.com/file/d/1O3AFMg7TwXwYTxrvrRvw2a-tAGaytjcS/view)  
+[YouTube](https://youtu.be/H7lrkNkUtEI)
