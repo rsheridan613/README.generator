@@ -22,9 +22,11 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license === "MIT") {
-    return `##License  [MIT](https://opensource.org/licenses/MIT)`;
+    return `## License
+[MIT](https://opensource.org/licenses/MIT)`;
   } else if (license === "Apache") {
-    return `##License  [Apache](https://opensource.org/licenses/Apache-2.0)`;
+    return `## License
+[Apache](https://opensource.org/licenses/Apache-2.0)`;
   } else if (license === "None") {
     return ``;
   }
@@ -34,17 +36,19 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `${renderLicenseBadge(data.license)} 
   # ${data.title}
+
+  
+  ### Table of contents:
+  1. [Description](#description)
+  1. [Installation](#installation)
+  1. [Usage](#usage)
+  1. [Contributions](#contributions)
+  1. [Tests](#tests)
+  ${renderLicenseLink(data.license)}
+  1. [Questions](#questions)
+  
   ## Description
   ${data.description}
-
-### Table of contents:
-
-1. [Installation](#installation)
-1. [Usage](#usage)
-1. [Contributing](#contributing)
-1. [Tests](#tests)
-${renderLicenseLink(data.license)}
-1. [Questions](#questions)
 
 ## Intallation
 ${data.install}
@@ -52,7 +56,7 @@ ${data.install}
 ## Usage
 ${data.usage}
 
-## Contributing
+## Contributions
 ${data.contribution}
 
 ## Tests
