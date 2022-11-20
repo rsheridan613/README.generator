@@ -20,18 +20,22 @@ const questions = [
     type: "input",
     message: "What are the installation instructions?",
   },
-  { name: "usage", type: "input", message: "How do you use this app?" },
-  { name: "contribution", type: "input", message: "Who are the contributors?" },
+  { name: "usage", type: "input", message: "How do you use this project?" },
+  {
+    name: "contribution",
+    type: "input",
+    message: "How can people contribute to this project?",
+  },
   {
     name: "test",
     type: "input",
     message: "Inculde instructions on how to run tests.",
   },
   {
-    name: "liscense",
+    name: "license",
     type: "list",
     message: "Which liscense would you like?",
-    choices: ["one", "two", "None"],
+    choices: ["MIT", "Apache", "None"],
   },
   {
     name: "gitUsername",
@@ -52,7 +56,7 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer
     .prompt(questions)
-    .then((response) => writeToFile("README.md", generateMarkdown(response)));
+    .then((response) => writeToFile("CUSTOM.md", generateMarkdown(response)));
 }
 
 // Function call to initialize app
