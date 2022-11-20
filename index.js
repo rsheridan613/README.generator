@@ -34,7 +34,7 @@ const questions = [
   {
     name: "license",
     type: "list",
-    message: "Which liscense would you like?",
+    message: "Which license would you like?",
     choices: ["MIT", "Apache", "None"],
   },
   {
