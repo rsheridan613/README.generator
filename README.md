@@ -1,4 +1,4 @@
-#README Generator
+# README Generator
 
 A quick way to generate a professional README file.
 
